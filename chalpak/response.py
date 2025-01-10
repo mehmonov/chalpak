@@ -4,9 +4,6 @@ from aiohttp.web_response import Response as _Response
 import aiohttp_jinja2
 from aiohttp.web import Request
 
-def render(template_name: str, request: Request, context: dict):
-    return aiohttp_jinja2.render_template(template_name, request, context)
-
 class Response:
     def __init__(self, content: str, status_code: int = 200, content_type: str = 'text/html', headers: dict = None):
         self.content = content
@@ -31,3 +28,7 @@ class JSONResponse(Response):
 class FileResponse(_FileResponse):
     def __init__(self, path: str, status_code: int = 200, headers: dict = None):
         super().__init__(path, status_code=status_code, headers=headers)
+
+
+def render(template_name: str, request: Request, context: dict):
+    return aiohttp_jinja2.render_template(template_name, request, context)
