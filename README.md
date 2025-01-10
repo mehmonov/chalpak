@@ -18,7 +18,7 @@ pip install chalpak
 ## Usage
 
 ```python
-from chalpak.app import ChalpakApp
+from chalpak.app import Chalpak
 
 app = Chalpak()
 
@@ -30,11 +30,11 @@ app.run()
 ## Examples
 
 ```python
-from chalpak.app import ChalpakApp
+from chalpak.app import Chalpak
 
 from chalpak.response import JSONResponse, HTMLResponse, render
 
-app = ChalpakApp(templates='templates')
+app = Chalpak(templates='templates')
 
 @app.get("/salom/{name}")
 async def index(request, name):

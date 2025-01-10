@@ -9,7 +9,7 @@ from .response import HTMLResponse, Response
 
 logging.basicConfig(level=logging.INFO)
 
-class ChalpakApp:
+class Chalpak:
     def __init__(self, host: str = "127.0.0.1", port: int = 6767, templates: Optional[str] = None, static_folder: Optional[str] = None) -> None:
         self.host = host
         self.port = port

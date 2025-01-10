@@ -1,17 +1,13 @@
-from chalpak.app import ChalpakApp
+from chalpak.app import Chalpak
 
 from chalpak.response import JSONResponse, HTMLResponse, render
 
-app = ChalpakApp(templates='templates')
+app = Chalpak()
 
 
 
-@app.get("/salom/{name}")
+@app.get("/hello/{name}")
 async def index(request, name):
     return JSONResponse({"name": name})
-
-@app.get("/html/{name}")
-async def html(request, name):
-    return render("index.html", request, {"name": name})
 
 app.run()
