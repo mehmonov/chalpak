@@ -1,58 +1,49 @@
 ---
 title: Introduction
-description: This section provides an overview of AriaDocs.
+description: This section provides an overview of Chalpak.
 ---
+Welcome to Chalpak!
 
-Welcome to **AriaDocs**! This template provides a modern, flexible, and user-friendly foundation for creating engaging documentation. Whether you're building a knowledge base, project docs, or a personal blog, AriaDocs makes it easy to set up and scale.
+Chalpak is a modern, high-performance web framework for building APIs and web applications with Python 3.7+. Inspired by FastAPI and built on top of Starlette and Aiohttp, Chalpak offers a powerful yet intuitive developer experience, and excellent performance.
+
 
 
 ##  Open Source Philosophy
 
-AriaDocs is proudly **open-source**! 🎉 We believe in creating an accessible, collaborative platform that thrives on community contributions.
+Chalpak is proudly open-source! 🎉 We believe in creating an accessible, collaborative platform that thrives on community contributions.
 
 <Note title="Contribute"> 
- Interested in helping us improve? Check out our [GitHub repository](https://github.com/your-repo) to get started! From feature suggestions to bug fixes, all contributions are welcome.
+ Interested in helping us improve? Check out our [GitHub repository](https://github.com/mehmonov/chalpak) to get started! From feature suggestions to bug fixes, all contributions are welcome.
 </Note>
 
 ## Project Overview
 
-**AriaDocs** is more than just a documentation template. It's a **complete toolkit** designed for modern web development. Key features include:
+Chalpak aims to be a lightweight, flexible, and easy-to-learn alternative to existing Python web frameworks. It leverages modern Python features like type hints and async/await to make your code more readable, maintainable, and efficient.
 
-- **Markdown & MDX Support:** Easily write documentation in Markdown, with the option to include interactive components via MDX.
-- **Customizable Themes:** Designed with a minimalist ShadCN-inspired theme that’s easy to style.
-- **SEO-Optimized:** Each page is SEO-ready, ensuring search engines can find and rank your content.
-- **Interactive Code Blocks:** Beautifully styled, language-specific code blocks for an enhanced reading experience.
+**Key Goals:**
 
-### Key Features
+-   **Fast to Code:** Increase development speed with an intuitive API and minimal boilerplate.
+-   **Fast to Run:** Deliver high performance thanks to Starlette and asynchronous programming.
+-   **Automatic API Docs:** Generate interactive API documentation (OpenAPI/Swagger and ReDoc) automatically from your code.
+-   **Data Validation:** Use Pydantic for robust data validation and serialization.
+-   **Easy to Learn:** Designed with simplicity and a gentle learning curve in mind.
+-   **Extensible:** Support for plugins and middleware to customize and enhance functionality.
 
-| **Feature**                   | **Description**                                          |
-|-------------------------------|----------------------------------------------------------|
-| MDX Support                   | Write interactive documentation with MDX.                |
-| Nested Pages                  | Organize content in a nested, hierarchical structure.    |
-| Blog Section                  | Include a dedicated blog section.                        |
-| Pagination                    | Split content across multiple pages.                     |
-| Syntax Highlighting           | Highlight code for better readability.                   |
-| Code Line Highlighting & Titles | Highlight specific lines with descriptive titles.      |
-| Interactive Code Blocks       | Language-specific and interactive code display.          |
-| Custom Markdown Components             | Embed custom, reusable components in your docs.          |
-| Static Site Generation        | Generate a static, high-performance site.                |
-| SEO-Optimized                 | Structured for optimal search engine indexing.           |
+## Key Features
 
+| Feature                      | Description                                                                                                                                     |
+| :--------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **FastAPI-like API**         | Similar developer experience to FastAPI, making it easy to transition or learn if you're familiar with FastAPI.                                |
+| **Asynchronous Support**     | Leverage `async` and `await` for non-blocking, concurrent request handling.                                                                   |
+| **Type Hinting**           | Use Python type hints for improved code readability, maintainability, and automatic data validation.                                              |
+| **Pydantic Integration**     | Define data models and perform data validation using Pydantic.                                                                                  |
+| **Automatic API Docs**      | Generate interactive API documentation (OpenAPI/Swagger and ReDoc) from your code and type hints.                                            |
+| **Dependency Injection**    | Powerful and easy-to-use dependency injection system.                                                                                          |
+| **Middleware Support**       | Add custom middleware to modify requests and responses.                                                                                         |
+| **Testing Utilities**        | Built-in testing utilities to simplify writing tests for your application.                                                                       |
+| **Built on Starlette**      | Benefit from the performance and features of the Starlette ASGI toolkit.                                                                      |
 
-## Technology & Libraries
+## Install and try now
 
-AriaDocs leverages cutting-edge technologies to ensure performance and flexibility:
-
-- **Next.js 14** - The powerful React framework optimized for production.
-- **Tailwind CSS** - Utility-first styling for quick, clean designs.
-- **Shadcn-UI** - Elegant, accessible components for a polished look.
-- **next-mdx-remote** - Enables MDX support for dynamic, interactive Markdown content.
-
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-You can deploy your project by clicking [Deploy with Vercel](https://vercel.com/new/clone?repository-url=https://github.com/nisabmohd/Aria-Docs)
+```bash
+pip install chalpak

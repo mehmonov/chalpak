@@ -1,72 +1,90 @@
 ---
 title: Installation
-description: Installation guide for our application.
+description: Installation guide for our framework.
 ---
 
-Setting up AriaDocs is straightforward, with options to clone the repository or use the convenient `npx` command. AriaDocs requires [Node.js](https://nodejs.org/) version 18 or higher for optimal performance.
+# Installation
 
-## Clone Repository
-To get started, you can clone the AriaDocs repository directly from GitHub. 
-<Stepper>
-  <StepperItem title="Step 1: Clone the AriaDocs Repository">
-    Begin by cloning the AriaDocs repository from GitHub:
+This guide provides instructions on how to install the Chalpak web framework.
 
-    ```plaintext
-    git clone https://github.com/nisabmohd/Aria-Docs.git
-    ```
-  </StepperItem>
+## Installation Options
 
-  <StepperItem title="Step 2: Access the Project Directory">
-    After cloning, navigate into the project directory to start setting up:
+There are several ways to install and start using Chalpak:
 
-    ```plaintext
-    cd Aria-Docs
-    ```
-  </StepperItem>
+-   **Using pip (Recommended):** The easiest and most common way to install Chalpak is via `pip`, the Python package installer.
+-   **Cloning the Repository:** For development or to access the latest (potentially unstable) features, you can clone the Chalpak repository from GitHub.
+-   **Using a Project Template (Coming Soon):** We're working on providing a project template that you can use to quickly bootstrap a new Chalpak project with a pre-configured structure. 
 
-  <StepperItem title="Step 3: Install Required Dependencies">
-    Install all necessary project dependencies with npm:
+## Method 1: Installation via pip (Recommended)
 
-    <Note title="Remember">
-      To support React 19, package maintainers will need to test and update their packages to include React 19 as a peer dependency. This is already in progress.
-    </Note>
+**Step 1: Install Chalpak**
 
-    ```plaintext
-    npm install
-    ```
-  </StepperItem>
+Install Chalpak using `pip`:
 
-  <StepperItem title="Step 4: Launch the Development Server">
-    Finally, start the development server to view the project locally:
+```bash
+pip install chalpak
+```
+**Step 3: Verify Installation**
 
-    ```plaintext
-    npm run dev
-    ```
-  </StepperItem>
-</Stepper>
+Verify that Chalpak was installed correctly by checking the version:
 
-## Quick Setup with npx
+```bash
+chalpak --version
+```
+You should see the installed version of Chalpak printed in the console.
 
-For a faster setup, use the `npx` command to create a new AriaDocs project in one step:
+## Method 2: Cloning the Repository (For Development)
+Use this method if you want to contribute to Chalpak development or need the very latest (potentially unstable) version.
 
-```plaintext
-npx create-aria-doc <project-directory>
+**Step 1: Clone the Chalpak Repository**
+Clone the Chalpak repository from GitHub:
+
+```bash
+git clone https://github.com/mehmonov/chalpak
+```
+**Step 2: Navigate to the Project Directory**
+
+Change your current directory to the newly cloned Chalpak folder:
+
+```bash
+cd chalpak
 ```
 
-**Command Output:**
+**Step 3: Create a Virtual Environment**
 
-```plaintext
-Creating a new AriaDocs project in /path/to/your/project from the master branch...
-Cloning Master (Full Documentation)...
-AriaDocs project successfully created in /path/to/your/project!
+It's highly recommended to create a virtual environment to isolate project dependencies:
 
-Next steps:
-1. Navigate to your project directory:
-   cd <project-directory>
-2. Install dependencies:
-   npm install
-3. Start the development server:
-   npm run dev
+```bash
+# On Windows
+python -m venv venv
+# On macOS/Linux
+python3 -m venv venv
+```
+**Step 4: Activate the Virtual Environment**
+
+Activate the virtual environment:
+
+```bash
+# On Windows
+venv\Scripts\activate
+# On macOS/Linux
+source venv/bin/activate
 ```
 
-With this setup, you’ll have a ready-to-use AriaDocs instance to start building your documentation.
+## Method 3: Using a Project Template (Coming Soon)
+
+    Note: This feature is not yet available but is planned for a future release.
+
+We're working on a project template to simplify bootstrapping new Chalpak applications. This template will provide a basic project structure, example code, and configuration to get you started quickly.
+
+
+## Troubleshooting
+
+If you encounter any issues during installation, please check the following:
+
+-  Make sure you have Python 3.7 or higher installed.
+-  Ensure that pip is up to date (pip install --upgrade pip).
+-  If using a virtual environment, verify that it's activated.
+-  Consult the Chalpak repository's issue tracker or community forums for solutions to common problems.
+
+We're here to help if you run into any problems. Happy coding with Chalpak!
