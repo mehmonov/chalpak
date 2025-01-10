@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "Chalpak - web framework",
   metadataBase: new URL("https://chalpak.vercel.app/"),
   description:
-    "This  ssdasdas2323 documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your project documentation requirements.",
+    "Chalpak is a simple and easy-to-use web framework that helps you create fast and efficient web applications.",
 };
 
 export default function RootLayout({
