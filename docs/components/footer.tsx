@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
-import { DiscAlbum,CommandIcon, HeartIcon, TriangleIcon } from "lucide-react";
+import { DiscAlbum, HeartIcon } from "lucide-react";
 
 export function Footer() {
   return (
