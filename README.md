@@ -7,7 +7,7 @@ Chalpak is a simple and easy-to-use web framework that helps you create fast and
 [![Documentation Status](https://readthedocs.org/projects/chalpak/badge/?version=latest)](https://chalpak.readthedocs.io/en/latest/?badge=latest)
 
 ## Inspiration
-The construction site began to write first class codes for me. I searched on Jan 4, I looked for a lot, it is very difficult to build the building. [Alcazar](https://github.com/rahmonov/alcazar) seemed very interesting to me. I bought [Jahongir Rakhmonov](https://github.com/rahmonov)  "Bulding your web framework " He gave me the main motivation and knowledge. I saw a lot of Github REPOs. I read articles. Thanks to [TezApi](https://github.com/dev-au/tezapi) you are most useful to me
+The construction site began to write first class codes for me. I searched on Jan 4, I looked for a lot, it is very difficult to build the building. [Alcazar](https://github.com/rahmonov/alcazar) seemed very interesting to me. Thanks to [Jahongir Rakhmonov](https://github.com/rahmonov) you are most useful to me
 
 **Install Chalpak**
 
@@ -18,7 +18,7 @@ pip install chalpak
 ## Usage
 
 ```python
-from chalpak import Chalpak
+from chalpak.app import ChalpakApp
 
 app = Chalpak()
 

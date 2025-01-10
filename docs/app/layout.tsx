@@ -21,7 +21,7 @@ const monoFont = Space_Mono({
 
 export const metadata: Metadata = {
   title: "Chalpak - web framework",
-  metadataBase: new URL("https://ariadocs.vercel.app/"),
+  metadataBase: new URL("https://chalpak.vercel.app/"),
   description:
     "This  ssdasdas2323 documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your project documentation requirements.",
 };
