@@ -1,95 +1,95 @@
 ---
-title: Project Structure
-description: This section provides an overview of Project Structure.
+title: Loyiha Tuzilishi
+description: Ushbu bo'lim Loyiha Tuzilishiga umumiy nuqtai nazarni taqdim etadi.
 ---
 
-## Project Structure Overview
+## Loyiha Tuzilishiga Umumiy Nuqtai Nazar
 
 ### app
 
-This folder contains the main application code for Next.js, managing layouts, routing, and specific content pages. It is organized to support both the `docs` and `blog` sections, with dedicated pages and layouts for each section.
+Bu papka Next.js uchun asosiy ilova kodini o'z ichiga oladi, u joylashuvlar, marshrutlash va maxsus kontent sahifalarini boshqaradi. U `docs` va `blog` bo'limlarini qo'llab-quvvatlash uchun tashkil etilgan bo'lib, har bir bo'lim uchun maxsus sahifalar va joylashuvlar mavjud.
 
 ```
-app                         // Main Next.js application folder
-├── page.tsx                // Hero page - the entry point of the app showcasing key content
-├── layout.tsx              // Main layout file, applies global navigation and footer
+app                         // Asosiy Next.js ilova papkasi
+├── page.tsx                // Bosh sahifa - ilovaning asosiy kirish nuqtasi, asosiy kontentni namoyish etadi
+├── layout.tsx              // Asosiy joylashuv fayli, global navigatsiya va futerni qo'llaydi
 ├── blog
-│   ├── page.tsx            // Blog list page, displaying all blog posts with titles, dates, and excerpts
+│   ├── page.tsx            // Blog ro'yxati sahifasi, barcha blog postlarini sarlavhalar, sanalar va qisqa tavsiflar bilan ko'rsatadi
 │   └── [slug]
-│       └── page.tsx        // Dynamic blog post page for viewing individual posts with rich content
+│       └── page.tsx        // Dinamik blog posti sahifasi, alohida postlarni boy kontent bilan ko'rish uchun
 └── docs
-    ├── layout.tsx          // Documentation layout with sidebar, providing easy navigation across doc pages
-    └── [[...slug]]         // Catch-all route to handle nested documentation pages, allowing flexible doc structure
+    ├── layout.tsx          // Yon panelli hujjatlar joylashuvi, hujjat sahifalari bo'ylab oson navigatsiyani ta'minlaydi
+    └── [[...slug]]         // Ichki hujjat sahifalarini boshqarish uchun barcha marshrutlarni qamrab oluvchi marshrut, moslashuvchan hujjat tuzilishini ta'minlaydi
 ```
 
 ### components
 
-This folder contains all reusable components used throughout the project. It’s structured to categorize components, making it easy to locate and manage UI elements, Markdown customizations, and navigation.
+Bu papka butun loyiha bo'ylab ishlatiladigan barcha qayta ishlatiladigan komponentlarni o'z ichiga oladi. U komponentlarni kategoriyalash uchun tuzilgan bo'lib, UI elementlari, Markdown sozlamalari va navigatsiyani topish va boshqarishni osonlashtiradi.
 
 ```
-components                    // Reusable components
-├── ui                        // ShadCN components, includes standardized UI elements like buttons, forms, and modals
-├── markdown                  // Custom Markdown components for rendering rich Markdown content
-│   ├── CodeBlock.tsx         // Component for rendering syntax-highlighted code blocks
-│   ├── Image.tsx             // Component for handling responsive images in Markdown
-│   └── Table.tsx             // Component to render tables with consistent styling
-└── navbar.tsx                // Main navigation component for the site header, managing links and responsive behavior
+components                    // Qayta ishlatiladigan komponentlar
+├── ui                        // ShadCN komponentlari, tugmalar, formalar va modallar kabi standartlashtirilgan UI elementlarini o'z ichiga oladi
+├── markdown                  // Boy Markdown kontentini ko'rsatish uchun maxsus Markdown komponentlari
+│   ├── CodeBlock.tsx         // Sintaksisni ajratib ko'rsatuvchi kod bloklarini ko'rsatish uchun komponent
+│   ├── Image.tsx             // Markdown'da responsiv rasmlarni boshqarish uchun komponent
+│   └── Table.tsx             // Izchil uslubga ega jadvallarni ko'rsatish uchun komponent
+└── navbar.tsx                // Sayt sarlavhasi uchun asosiy navigatsiya komponenti, havolalarni va responsiv xatti-harakatni boshqaradi
 ```
 
 ### styles
 
-This folder contains global and component-specific CSS files, allowing for project-wide styling consistency and customizations.
+Bu papka global va komponentga xos CSS fayllarini o'z ichiga oladi, bu loyiha bo'ylab uslublar izchilligini va sozlashlarni ta'minlaydi.
 
 ```
-styles                        // CSS files
-├── globals.css               // Global CSS file, includes Tailwind base, utilities, and custom global styles
-├── syntax.css                // Syntax highlighting styles, providing consistent code block appearance across the site
-└── overrides.css             // Additional custom styles that override specific component or plugin defaults
+styles                        // CSS fayllari
+├── globals.css               // Global CSS fayli, Tailwind asosini, yordamchi dasturlarni va maxsus global uslublarni o'z ichiga oladi
+├── syntax.css                // Sintaksisni ajratib ko'rsatish uslublari, sayt bo'ylab izchil kod bloki ko'rinishini ta'minlaydi
+└── overrides.css             // Maxsus komponent yoki plagin standartlarini bekor qiluvchi qo'shimcha maxsus uslublar
 ```
 
 ### contents
 
-This folder stores all Markdown content for the documentation and blog sections, with clear organization by content type. Each Markdown file represents a single piece of content, with frontmatter used for metadata.
+Bu papka hujjatlar va blog bo'limlari uchun barcha Markdown kontentini saqlaydi, kontent turi bo'yicha aniq tashkil etilgan. Har bir Markdown fayli bitta kontent qismini ifodalaydi, metadata uchun frontmatter ishlatiladi.
 
 ```
-contents                      // Markdown content for blogs and documentation
-├── docs                      // Documentation content, structured to support nested sections and pages
-│   ├── getting-started.md    // Introductory guide for new users
-│   ├── api-reference.md      // API documentation with detailed endpoint descriptions
-│   └── tutorials             // Subfolder for tutorial-style content
-│       └── tutorial-1.md     // Step-by-step tutorial on a specific topic
-└── blogs                     // Blog content, organized by post
-    ├── intro-to-project.md   // Blog post introducing the project and its goals
-    └── dev-updates.md        // Post discussing recent development updates and new features
+contents                      // Bloglar va hujjatlar uchun Markdown kontenti
+├── docs                      // Hujjatlar kontenti, ichki bo'limlar va sahifalarni qo'llab-quvvatlash uchun tuzilgan
+│   ├── getting-started.md    // Yangi foydalanuvchilar uchun kirish qo'llanmasi
+│   ├── api-reference.md      // Batafsil endpoint tavsiflari bilan API hujjatlari
+│   └── tutorials             // Qo'llanma uslubidagi kontent uchun ichki papka
+│       └── tutorial-1.md     // Muayyan mavzu bo'yicha bosqichma-bosqich qo'llanma
+└── blogs                     // Blog kontenti, post bo'yicha tashkil etilgan
+    ├── intro-to-project.md   // Loyihani va uning maqsadlarini tanishtiruvchi blog posti
+    └── dev-updates.md        // So'nggi ishlab chiqish yangilanishlari va yangi funksiyalar haqida post
 ```
 
 ### public
 
-This folder holds all static assets, such as images, videos, fonts, and icons. These files are directly accessible via URL, so it’s important to avoid sensitive or private content here.
+Bu papka barcha statik aktivlarni, masalan, rasmlar, videolar, shriftlar va ikonkalarni saqlaydi. Bu fayllar URL orqali to'g'ridan-to'g'ri kirish mumkin, shuning uchun bu yerda sezgir yoki shaxsiy kontentdan qochish muhimdir.
 
 ```
-public                        // Publicly accessible assets
-├── images                    // Image assets, used across various parts of the app
-│   ├── logo.png              // Project logo for branding
-│   └── banner.jpg            // Banner image for the hero section
-├── icons                     // SVG icons for the app
-└── videos                    // Video files for media content, if any
+public                        // Ommaviy kirish mumkin bo'lgan aktivlar
+├── images                    // Rasm aktivlari, ilovaning turli qismlarida ishlatiladi
+│   ├── logo.png              // Brending uchun loyiha logotipi
+│   └── banner.jpg            // Bosh sahifa uchun banner rasmi
+├── icons                     // Ilova uchun SVG ikonkalari
+└── videos                    // Media kontenti uchun video fayllar, agar mavjud bo'lsa
 ```
 
 ### lib
 
-This folder contains helper functions and utilities used across the application, such as Markdown parsing and routing logic. These utilities help keep the codebase clean and organized by separating out common functionality.
+Bu papka ilova bo'ylab ishlatiladigan yordamchi funksiyalar va yordamchi dasturlarni o'z ichiga oladi, masalan, Markdown tahlili va marshrutlash mantiqi. Bu yordamchi dasturlar umumiy funksionallikni ajratish orqali kod bazasini toza va tartibli saqlashga yordam beradi.
 
 ```
-lib                           // Utility or helper functions
-├── markdown.ts               // Markdown parsing logic, converts Markdown to HTML and adds custom components
-├── routes-config.ts          // Routing configuration for docs, maps URLs to content files for dynamic routing
-└── utils.tsx                 // General utility functions used across the app, such as data formatting and validation helpers
+lib                           // Yordamchi yoki yordamchi funksiyalar
+├── markdown.ts               // Markdown tahlili mantiqi, Markdownni HTMLga o'tkazadi va maxsus komponentlarni qo'shadi
+├── routes-config.ts          // Hujjatlar uchun marshrutlash konfiguratsiyasi, URL'larni dinamik marshrutlash uchun kontent fayllariga bog'laydi
+└── utils.tsx                 // Ilova bo'ylab ishlatiladigan umumiy yordamchi funksiyalar, masalan, ma'lumotlarni formatlash va validatsiya yordamchilari
 ```
 
-### Additional
+### Qo'shimcha
 
-- **`package.json`**: Contains metadata about the project, dependencies, and scripts for building and running the application.
-- **`tailwind.config.ts`**: Configures Tailwind CSS, allowing customization of theme colors, fonts, and responsive breakpoints specific to this project. 
+- **`package.json`**: Loyiha haqidagi metadata, bog'liqliklar va ilovani qurish va ishga tushirish uchun skriptlarni o'z ichiga oladi.
+- **`tailwind.config.ts`**: Tailwind CSSni sozlaydi, bu loyihaga xos ranglar, shriftlar va responsiv nuqtalarni sozlash imkonini beradi.
 
-This structure organizes your project in a way that supports scalability and maintainability, making it easier to navigate and work on different sections of the application.
+Ushbu tuzilma loyihangizni kengaytirilish va saqlanishni qo'llab-quvvatlaydigan tarzda tashkil etadi, bu esa ilovaning turli bo'limlarida navigatsiya qilish va ishlashni osonlashtiradi.

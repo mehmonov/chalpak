@@ -1,90 +1,92 @@
 ---
-title: Installation
-description: Installation guide for our framework.
+title: O'rnatish
+description: Freymvorkimizni o'rnatish bo'yicha qo'llanma.
 ---
 
-# Installation
+# O'rnatish
 
-This guide provides instructions on how to install the Chalpak web framework.
+Ushbu qo'llanma Chalpak veb-freymvorkini o'rnatish bo'yicha ko'rsatmalarni taqdim etadi.
 
-## Installation Options
+## O'rnatish Imkoniyatlari
 
-There are several ways to install and start using Chalpak:
+Chalpakni o'rnatish va undan foydalanishni boshlashning bir necha yo'li mavjud:
 
--   **Using pip (Recommended):** The easiest and most common way to install Chalpak is via `pip`, the Python package installer.
--   **Cloning the Repository:** For development or to access the latest (potentially unstable) features, you can clone the Chalpak repository from GitHub.
--   **Using a Project Template (Coming Soon):** We're working on providing a project template that you can use to quickly bootstrap a new Chalpak project with a pre-configured structure. 
+-   **Pip yordamida (Tavsiya etiladi):** Chalpakni o'rnatishning eng oson va keng tarqalgan usuli - bu Python paket o'rnatuvchisi bo'lgan `pip` orqali.
+-   **Repozitoriyani klonlash:** Ishlab chiqish uchun yoki eng so'nggi (ehtimol beqaror) funksiyalarga kirish uchun siz Chalpak repozitoriyasini GitHub'dan klonlashingiz mumkin.
+-   **Loyihalar shablonidan foydalanish (Tez orada):** Biz oldindan sozlagan tuzilishga ega yangi Chalpak loyihasini tezda ishga tushirish uchun foydalanishingiz mumkin bo'lgan loyiha shablonini taqdim etish ustida ishlamoqdamiz.
 
-## Method 1: Installation via pip (Recommended)
+## 1-usul: Pip orqali o'rnatish (Tavsiya etiladi)
 
-**Step 1: Install Chalpak**
+**1-qadam: Chalpakni o'rnating**
 
-Install Chalpak using `pip`:
+Chalpakni `pip` yordamida o'rnating:
 
 ```bash
 pip install chalpak
 ```
-**Step 3: Verify Installation**
+**2-qadam: O'rnatishni tekshiring**
 
-Verify that Chalpak was installed correctly by checking the version:
+Chalpakning to'g'ri o'rnatilganligini versiyasini tekshirish orqali tasdiqlang:
 
 ```bash
 chalpak --version
 ```
-You should see the installed version of Chalpak printed in the console.
+Siz konsolda Chalpakning o'rnatilgan versiyasini ko'rishingiz kerak.
 
-## Method 2: Cloning the Repository (For Development)
-Use this method if you want to contribute to Chalpak development or need the very latest (potentially unstable) version.
+## 2-usul: Repozitoriyani klonlash (Ishlab chiqish uchun)
 
-**Step 1: Clone the Chalpak Repository**
-Clone the Chalpak repository from GitHub:
+Agar siz Chalpakni ishlab chiqishga hissa qo'shmoqchi bo'lsangiz yoki eng so'nggi (ehtimol beqaror) versiyaga ehtiyoj sezsangiz, ushbu usuldan foydalaning.
+
+**1-qadam: Chalpak repozitoriyasini klonlang**
+
+Chalpak repozitoriyasini GitHub'dan klonlang:
 
 ```bash
 git clone https://github.com/mehmonov/chalpak
 ```
-**Step 2: Navigate to the Project Directory**
+**2-qadam: Loyiha katalogiga o'ting**
 
-Change your current directory to the newly cloned Chalpak folder:
+Joriy katalogingizni yangi klonlangan Chalpak papkasiga o'zgartiring:
 
 ```bash
 cd chalpak
 ```
 
-**Step 3: Create a Virtual Environment**
+**3-qadam: Virtual muhit yarating**
 
-It's highly recommended to create a virtual environment to isolate project dependencies:
+Loyiha bog'liqliklarini ajratish uchun virtual muhit yaratish tavsiya etiladi:
 
 ```bash
-# On Windows
+# Windowsda
 python -m venv venv
-# On macOS/Linux
+# macOS/Linuxda
 python3 -m venv venv
 ```
-**Step 4: Activate the Virtual Environment**
+**4-qadam: Virtual muhitni faollashtiring**
 
-Activate the virtual environment:
+Virtual muhitni faollashtiring:
 
 ```bash
-# On Windows
+# Windowsda
 venv\Scripts\activate
-# On macOS/Linux
+# macOS/Linuxda
 source venv/bin/activate
 ```
 
-## Method 3: Using a Project Template (Coming Soon)
+## 3-usul: Loyiha shablonidan foydalanish (Tez orada)
 
-    Note: This feature is not yet available but is planned for a future release.
+    Eslatma: Bu funksiya hali mavjud emas, ammo kelajakdagi relizlar uchun rejalashtirilgan.
 
-We're working on a project template to simplify bootstrapping new Chalpak applications. This template will provide a basic project structure, example code, and configuration to get you started quickly.
+Biz yangi Chalpak ilovalarini tezda ishga tushirishni soddalashtirish uchun loyiha shablonini yaratish ustida ishlamoqdamiz. Ushbu shablon asosiy loyiha tuzilishi, misol kod va konfiguratsiyani taqdim etadi.
 
 
-## Troubleshooting
+## Muammolarni bartaraf etish
 
-If you encounter any issues during installation, please check the following:
+O'rnatish jarayonida biron bir muammoga duch kelsangiz, quyidagilarni tekshiring:
 
--  Make sure you have Python 3.7 or higher installed.
--  Ensure that pip is up to date (pip install --upgrade pip).
--  If using a virtual environment, verify that it's activated.
--  Consult the Chalpak repository's issue tracker or community forums for solutions to common problems.
+-   Python 3.7 yoki undan yuqori versiyasi o'rnatilganligiga ishonch hosil qiling.
+-   `pip` ning yangilanganligiga ishonch hosil qiling (`pip install --upgrade pip`).
+-   Agar virtual muhitdan foydalanayotgan bo'lsangiz, uning faollashtirilganligini tekshiring.
+-   Umumiy muammolarni hal qilish uchun Chalpak repozitoriyasining muammolar kuzatuvchisi yoki jamoa forumlariga murojaat qiling.
 
-We're here to help if you run into any problems. Happy coding with Chalpak!
+Biron bir muammoga duch kelsangiz, biz yordam berishga tayyormiz. Chalpak bilan muvaffaqiyatli kod yozing!
