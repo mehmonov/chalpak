@@ -52,4 +52,9 @@ app.run()
 ```bash
 jurigged -v script.py
 ```
+## 📢 Recognized by the Community
+
+This project is listed in the [Uzbek Awesome Open Source](https://github.com/floss-uz/awesome) collection.
+
+👉 [View the full list](https://github.com/floss-uz/awesome#projects)  
 
