@@ -1,0 +1,6 @@
+venv/
+env/
+chalpak.egg-info/
+__pycache__/
+*.pyc
+*.pyo

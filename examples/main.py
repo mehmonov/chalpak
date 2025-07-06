@@ -1,13 +1,15 @@
 from chalpak.app import Chalpak
-
-from chalpak.response import JSONResponse, HTMLResponse, render
+from chalpak.response import JSONResponse
 
 app = Chalpak()
 
-
+@app.get("/")
+async def home(request):
+    return JSONResponse({"message": "Hello from Chalpak!"})
 
 @app.get("/hello/{name}")
-async def index(request, name):
-    return JSONResponse({"name": name})
+async def hello_name(request, name: str):
+    return JSONResponse({"message": f"Hello, {name}!"})
 
-app.run()
+if __name__ == "__main__":
+    app.run()

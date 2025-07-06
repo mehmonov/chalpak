@@ -1,0 +1,121 @@
+---
+title: Marshrutlash (Routing)
+description: Chalpakda marshrutlar va endpointlarni qanday yaratish.
+---
+
+# Marshrutlash (Routing)
+
+Chalpakda marshrutlash - bu kelayotgan HTTP so'rovlarini (masalan, foydalanuvchi brauzeridan kelgan so'rov) qaysi kod qismi (funksiya) bajarishini belgilash jarayonidir. Bu har qanday veb-freymvorkning asosiy qismlaridan biridir.
+
+## Asosiy Konseptsiya
+
+Chalpakda marshrutlar `app` obyektining `get`, `post`, `put`, `delete` kabi dekoratorlari yordamida aniqlanadi. Har bir dekorator bitta HTTP metodiga mos keladi.
+
+```python
+from chalpak.app import Chalpak
+
+app = Chalpak()
+
+@app.get("/")
+async def home(request):
+    return {"message": "Bosh sahifa"}
+
+@app.post("/items")
+async def create_item(request):
+    # ... element yaratish mantiqi ...
+    return {"status": "success"}
+```
+
+- `@app.get("/")`: Bu dekorator `home` funksiyasini `GET` so'rovlari uchun bosh yo'lga (`/`) bog'laydi.
+- `@app.post("/items")`: Bu esa `create_item` funksiyasini `POST` so'rovlari uchun `/items` yo'liga bog'laydi.
+
+## Dinamik Marshrutlar (Path Parameters)
+
+Ko'pincha sizga URL manzilining bir qismini o'zgaruvchi sifatida qabul qilish kerak bo'ladi. Masalan, foydalanuvchini uning ID'si bo'yicha olish. Buning uchun jingalak qavslardan (`{}`) foydalanishingiz mumkin.
+
+```python
+from chalpak.app import Chalpak
+from chalpak.response import JSONResponse
+
+app = Chalpak()
+
+@app.get("/users/{user_id}")
+async def get_user(request, user_id):
+    # user_id o'zgaruvchisi URLdan olinadi
+    # Masalan, /users/123 so'rovi uchun user_id = "123" bo'ladi
+    return JSONResponse({"user_id": user_id, "name": "Ali"})
+```
+
+URL manzilidagi `{user_id}` qismi `get_user` funksiyasiga argument sifatida uzatiladi. Chalpak avtomatik ravishda yo'ldagi o'zgaruvchilarni funksiya argumentlari bilan moslashtiradi.
+
+## Javob Turlari (Response Types)
+
+Chalpak bir nechta o'rnatilgan javob turlarini taqdim etadi. Bu sizga qanday turdagi ma'lumotni qaytarishni osonlashtiradi.
+
+### JSON Javobi
+
+API-lar uchun eng keng tarqalgan javob turi bu JSON. `JSONResponse` yordamida lug'at (dictionary) ma'lumotlarini osongina JSON formatiga o'tkazishingiz mumkin.
+
+```python
+from chalpak.response import JSONResponse
+
+@app.get("/data")
+async def get_data(request):
+    return JSONResponse({"name": "Chalpak", "version": "0.2.4"})
+```
+
+### HTML Javobi
+
+Siz to'g'ridan-to'g'ri HTML kodini `HTMLResponse` yordamida qaytarishingiz mumkin.
+
+```python
+from chalpak.response import HTMLResponse
+
+@app.get("/hello")
+async def hello_page(request):
+    html_content = "<h1>Salom, Chalpak!</h1>"
+    return HTMLResponse(html_content)
+```
+
+### Shablonlar (Templates)
+
+Ko'pincha HTML kodini alohida fayllarda saqlash qulayroq. Chalpak `Jinja2` shablonizatorini qo'llab-quvvatlaydi. Buning uchun `Chalpak` obyektini yaratishda `templates` papkasini ko'rsatishingiz kerak.
+
+```python
+# main.py
+from chalpak.app import Chalpak
+from chalpak.response import render
+
+# 'templates' papkasini ko'rsatamiz
+app = Chalpak(templates='templates')
+
+@app.get("/")
+async def home(request):
+    # templates/index.html faylini render qilamiz
+    return render("index.html", request, {"title": "Bosh Sahifa"})
+```
+
+Loyihangiz struktura quyidagicha bo'lishi kerak:
+
+```
+. 
+├── main.py
+└── templates/
+    └── index.html
+```
+
+`templates/index.html` fayli:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>Salom, {{ title }}!</h1>
+</body>
+</html>
+```
+
+`render` funksiyasi shablonni topadi, unga kontekst (`{"title": "Bosh Sahifa"}`) ma'lumotlarini uzatadi va natijani HTML javob sifatida qaytaradi.

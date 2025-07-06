@@ -5,7 +5,8 @@ import logging
 import jinja2
 import aiohttp_jinja2
 from .routes import Route
-from .response import HTMLResponse, Response
+from .response import HTMLResponse, Response, JSONResponse
+from .exceptions import APIError
 
 logging.basicConfig(level=logging.INFO)
 
@@ -74,16 +75,25 @@ class Chalpak:
         return wrapper
 
     @web.middleware
-    async def error_middleware(self, request, handler):
+    async def error_middleware(self, request: Request, handler: Callable):
         try:
-            response = await handler(request)
-            if response.status == 404:
-                return HTMLResponse("<h1 style='color:red; background-color:yellow'>404: Page Not Found</h1>", status_code=404).__response__
-            return response
+            return await handler(request)
+        except APIError as e:
+            # Handle custom API errors
+            return e.__response__
         except web.HTTPException as ex:
-            if ex.status == 404:
-                return HTMLResponse("<h1 style='color:red; background-color:yellow'>404: Page Not Found</h1>", status_code=404).__response__
-            raise ex
+            # Handle aiohttp's built-in HTTP exceptions
+            return JSONResponse(
+                {"error": {"name": ex.reason, "message": ex.text}},
+                status_code=ex.status,
+            ).__response__
+        except Exception as e:
+            # Handle unexpected server errors
+            logging.error(f"Unexpected error: {e}", exc_info=True)
+            return JSONResponse(
+                {"error": {"name": "InternalServerError", "message": "An unexpected error occurred."}},
+                status_code=500,
+            ).__response__
 
     def run(self):
         web.run_app(self.app, host=self.host, port=self.port)

@@ -24,9 +24,17 @@ REQUIRED = [
     'Jinja2==3.1.4'
 ]
 
+here = os.path.abspath(os.path.dirname(__file__))
+
+try:
+    with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+        long_description = '\n' + f.read()
+except FileNotFoundError:
+    long_description = DESCRIPTION
+
 setup(
     name=NAME,
-    version=about['__version__'],
+    version=VERSION,
     description=DESCRIPTION,
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -36,13 +44,11 @@ setup(
     url=URL,
     packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
     install_requires=REQUIRED,
-    extras_require=EXTRAS,
     include_package_data=True,
     license='MIT',
     classifiers=[
         'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy'
-    ]
+        ]
 
    
 )

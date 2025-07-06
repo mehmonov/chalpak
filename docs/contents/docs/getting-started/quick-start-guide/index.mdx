@@ -1,46 +1,80 @@
 ---
-title: Quick Start Guide
-description: This section provides an overview of Quick Start Guide.
+title: Tezkor Boshlash Qo'llanmasi
+description: Chalpak bilan birinchi ilovangizni yarating.
 ---
-## Quick Start Guide
 
-This guide will help you quickly get started with Chalpak, set up a simple application, and understand the basic file structure.
+# Tezkor Boshlash Qo'llanmasi
 
-## Prerequisites
+Ushbu qo'llanma sizga Chalpak freymvorkini o'rnatish va birinchi "Salom, Dunyo!" ilovangizni yaratishda yordam beradi.
 
-Before you begin, make sure you have the following installed:
+## 1. O'rnatish
 
--   Python 3.7 or higher
--   pip (Python package installer)
+Chalpakni `pip` paket menejeri yordamida osongina o'rnatishingiz mumkin. Terminalingizda quyidagi buyruqni bajaring:
 
-## Creating Your First Chalpak Application
-
-Let's create a simple Chalpak application with two routes: one that returns JSON data and another that renders an HTML template.
-
-**Step 1: Create Project Directory**
-
-First, create a new directory for your project:
 ```bash
-mkdir my_chalpak_app
-cd my_chalpak_app
+pip install chalpak
 ```
 
-**Step 2: Create main.py**
+Bu buyruq Chalpak va uning ishlashi uchun zarur bo'lgan barcha kutubxonalarni (`aiohttp`, `Jinja2` va boshqalar) o'rnatadi.
 
-Create a file named main.py in your project directory and add the following code:
+## 2. Birinchi Ilovangiz
 
-```bash
+Endi keling, oddiy veb-ilova yaratamiz. O'zingizga qulay bo'lgan joyda `main.py` nomli fayl yarating va unga quyidagi kodni yozing:
+
+```python
 from chalpak.app import Chalpak
+from chalpak.response import JSONResponse
 
-app = Chalpak(templates="templates")
+# Chalpak ilovasini yaratamiz
+app = Chalpak()
 
+# Marshrut (route) va uning ishlovchisini (handler) belgilaymiz
 @app.get("/salom/{name}")
-async def salom(request, name):
-    return {"message": f"Salom, {name}!"}
+async def index(request, name):
+    return JSONResponse({"message": f"Salom, {name}!"})
 
-@app.get("/html/{name}")
-async def html_page(request, name):
-    return app.render("index.html", {"request": request, "name": name})
-
-app.run()
+# Ilovani ishga tushirish (agar fayl to'g'ridan-to'g'ri ishga tushirilsa)
+if __name__ == "__main__":
+    app.run()
 ```
+
+Ushbu kodda nimalar bo'layotganini ko'rib chiqamiz:
+
+1.  `Chalpak` klassi import qilinadi va uning nusxasi (`app`) yaratiladi.
+2.  `@app.get("/salom/{name}")` dekoratori `index` funksiyasini `GET` so'rovlari uchun `/salom/{name}` yo'liga bog'laydi. `{name}` bu dinamik segment bo'lib, URL manzilidan olinadigan o'zgaruvchini bildiradi.
+3.  `index` funksiyasi `request` obyekti va URL'dan olingan `name` parametrini qabul qiladi.
+4.  Funksiya `JSONResponse` obyektini qaytaradi, bu esa `{"message": "Salom, {name}!"}` JSON javobini hosil qiladi.
+5.  `app.run()` metodi veb-serverni ishga tushiradi.
+
+## 3. Ilovani Ishga Tushirish
+
+Ilovani ishga tushirish uchun `jurigged` dan foydalanish tavsiya etiladi. Bu kodga o'zgartirish kiritganingizda serverni avtomatik ravishda qayta ishga tushiradi.
+
+Terminalda quyidagi buyruqni bajaring:
+
+```bash
+jurigged -v main.py
+```
+
+Server ishga tushganidan so'ng, siz quyidagi kabi xabarni ko'rasiz:
+
+```
+======== Running on http://127.0.0.1:6767 ========
+(Press CTRL+C to quit)
+```
+
+## 4. Sinab Ko'rish
+
+Endi veb-brauzeringizni oching va quyidagi manzilga o'ting:
+
+[http://127.0.0.1:6767/salom/dunyo](http://127.0.0.1:6767/salom/dunyo)
+
+Siz brauzerda quyidagi JSON javobini ko'rishingiz kerak:
+
+```json
+{
+  "message": "Salom, dunyo!"
+}
+```
+
+Tabriklaymiz! Siz Chalpak yordamida o'zingizning birinchi veb-ilovangizni muvaffaqiyatli yaratdingiz va ishga tushirdingiz.

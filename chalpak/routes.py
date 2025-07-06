@@ -30,20 +30,21 @@ class Route:
                 raise ClassBaseError
 
     async def __call__(self, request: Request):
-        if self.method == request.method:
-            if self.schema is not None:
-                try:
-                    data = await request.json()
-                except JSONDecodeException:
-                    data = {}
-                try:
-                    self.schema(data)
-                except APIError as e:
-                    raise e
-            match_info = request.match_info
-            return await self.handler(request, **match_info)
-        else:
-            raise APIError('MethodNotAllowed', 405)
+        # The method check is no longer needed here because aiohttp's router
+        # already ensures the correct handler is called for the request method.
+        if self.schema:
+            try:
+                data = await request.json()
+                request["validated_data"] = self.schema(data)
+            except JSONDecodeException:
+                raise APIError(
+                    'InvalidJSON', 400, 'The provided data is not valid JSON.'
+                )
+            except APIError as e:
+                # Re-raise the validation error from the schema
+                raise e
+
+        return await self.handler(request, **request.match_info)
     
     def __repr__(self):
         return f'<Route {self.method} {self.path}>'

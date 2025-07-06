@@ -26,6 +26,14 @@ export const ROUTES: EachRoute[] = [
       
     ],
   },
+  {
+    title: "Guides",
+    href: "/guides",
+    noLink: true,
+    items: [
+      { title: "Marshrutlash (Routing)", href: "/creating-routes" },
+    ],
+  },
 ];
 
 type Page = { title: string; href: string };
